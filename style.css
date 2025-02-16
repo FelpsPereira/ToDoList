@@ -14,9 +14,65 @@ body{
 
 /*Detalhes Finalizados!!*/
 #main{
-    height: 450px;
+    height: 500px;
     width: 420px;
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.685);
-    
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+}
+
+#header{
+    display: flex;
+    align-items: end;
+    width: 90%;
+    justify-content: flex-end;
+}
+
+#addTask{
+    all: unset;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.418);
+}
+#addTask:active{
+    box-shadow: 0px 0px 10px gray;
+}
+
+#Photo{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background:beige url(DALL·E-2025-02-13-17.03.jpeg) no-repeat center center;
+    background-size: cover;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.432);
+    margin-top: 20px;
+    margin-right: 63px;
+}
+
+#divisors{
+    width: 90%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divisor{
+    width: 45%;
+    height: 1px;
+    display: inline-block;
+}
+
+#tasks{
+    margin-top: 20px;
+    width: 90%;
+    height: 250px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.301);
+    overflow-y: auto;
+}
+p{
+    font-size: 1em;
 }
