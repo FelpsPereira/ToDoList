@@ -12,6 +12,7 @@ addTask = document.querySelector('#addTaskButton').addEventListener('click', ()=
     
 })
 
+
 const cancelButton =document.querySelector('#cancel')
 const addButton = document.querySelector('#add')
 
@@ -20,6 +21,35 @@ cancelButton.addEventListener('click', ()=>{
     Blur.style.display = 'none'
 })
 
+const t = document.querySelector('#title'),
+a = document.querySelector('#assunt');
+const newP = (title, assunt) =>{
+    let divNewTask = document.querySelector('#newTask')
+    const pNewTitle = document.createElement('p');
+    pNewTitle.id = 'newTitleP';
+    pNewTitle.textContent = title
+    divNewTask.appendChild(pNewTitle);
+    
+}
+
+addButton.addEventListener('click', () => {
+    
+    
+    const divNewTask = document.createElement('div');
+    divNewTask.id = 'newTask';
+    tasks.appendChild(divNewTask);
+    newP(t.textContent, a.textContent)
+    t.textContent = ''
+    a.textContent = ''
+    addDisplay.style.display = 'none';
+    Blur.style.display = 'none';
+})
+/*addDisplay.style.display = 'none'
+    Blur.style.display = 'none'
+    const newTasks = document.createElement('p')
+    newTasks.textContent = 'Oloco'
+    tasks.appendChild(newTasks)
+    tasks.scrollTop = tasks.scrollHeight*/
 
 const editableDiv = document.querySelector('#assunt')
 const maxCharacters = 87  // Defina o número máximo de caracteres permitidos
@@ -27,10 +57,8 @@ const maxCharacters = 87  // Defina o número máximo de caracteres permitidos
 editableDiv.addEventListener('input', () => {
     const text = editableDiv.textContent
     if (text.length > maxCharacters) {
-        // Trunca o conteúdo ao limite
         editableDiv.textContent = text.slice(0,maxCharacters)
         
-        // Opcional: reposiciona o cursor no final
         const range = document.createRange()
         const sel = window.getSelection()
         range.selectNodeContents(editableDiv)
@@ -38,11 +66,5 @@ editableDiv.addEventListener('input', () => {
         sel.removeAllRanges()
         sel.addRange(range)
     }
+    
 })
-
-/*
-const newTasks = document.createElement('p')
-newTasks.textContent = 'Oloco'
-tasks.appendChild(newTasks)
-tasks.scrollTop = tasks.scrollHeight
-*/
