@@ -52,22 +52,16 @@ body{
     transition: all 0.2s ease-in-out;
 }
 #addTaskButton:hover{
-    transform: translateY(5px);
-    box-shadow: 0px 0px 8px gray;
-}
-#addTaskButton:active{
-    background-color: rgba(88, 202, 88, 0.322);
-}
-
-#addTask:active{
-    box-shadow: 0px 0px 10px gray;
+    transform: translateY(3px);
+    background-color:rgba(66, 192, 52, 0.63);
+    box-shadow: 0px 0px 10px rgb(106, 201, 106);
 }
 
 #Photo{
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    background:beige url(DALL·E-2025-02-13-17.03.jpeg) no-repeat center center;
+    background:beige url(PersonUseComputer.jpeg) no-repeat center center;
     background-size: cover;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.432);
     margin-top: 20px;
@@ -93,7 +87,19 @@ body{
     height: 250px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.301);
-    overflow-y: auto;
+    overflow-y: auto; 
+}
+#tasks::-webkit-scrollbar {
+    width: 4px;
+}
+
+#tasks::-webkit-scrollbar-thumb {
+    background-color: #b9b9b9ab;
+    border-radius: 10px;
+}
+
+#tasks::-webkit-scrollbar-thumb:hover {
+    background-color: #7c7c7c;
 }
 
 #add-display{
@@ -117,7 +123,6 @@ body{
     margin: 20px;
     margin-bottom: 3px;
     text-align: center;
-    color: gray;
 }
 #i{
     width: 90%;
@@ -138,11 +143,6 @@ body{
     white-space: pre-wrap;
     color: gray;
     
-}
-
-#assunt:empty::before{
-    content: attr(data-placeholder);
-    color: #888;
 }
 
 #buttons{
@@ -168,32 +168,32 @@ body{
     background-color: rgba(67, 255, 42, 0.425);
 }
 
-#newTask{
+.newTask{
     display: flex;
     width: 92%;
     height: 40px;
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.171);
-    margin: 15px;
+    padding: 15px;
+    margin: 10px;
     align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
 }
-p{
+.newAssuntP{
     color:#88888898;
     font-size: 0.9em;
     margin-left: 10px;
-    
 }
 
-#newTitleP{
+.newTitleP{
     margin-top: -2px;
     font-size: 1.1em;
     color: rgb(102, 102, 102);
     font-weight: bold;
 }
 
-
-
-#removeButton, #editButton{
+.removeButton, .completedButton{
     all:unset;
     border-radius:50%;
     width: 30px;
@@ -204,11 +204,16 @@ p{
     transition: all 0.2s ease-in-out;
 }
 
-#removeButton:hover{
+.divContent{
+    display: flex;
+}
+
+.removeButton:hover{
     background-color: rgba(255, 51, 51, 0.486);
     box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.384);
 }
-#editButton:hover{
+.completedButton:hover{
     background-color: rgba(51, 248, 255, 0.486);
     box-shadow: 0px 0px 10px rgba(0, 132, 255, 0.384);
 }
+

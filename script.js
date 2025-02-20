@@ -12,47 +12,65 @@ addTask = document.querySelector('#addTaskButton').addEventListener('click', ()=
     
 })
 
-
 const cancelButton =document.querySelector('#cancel')
 const addButton = document.querySelector('#add')
 
 cancelButton.addEventListener('click', ()=>{
     addDisplay.style.display = 'none'
     Blur.style.display = 'none'
+    a.textContent = ''
+    t.value = ''
 })
 
 const t = document.querySelector('#title'),
-a = document.querySelector('#assunt');
-const newP = (title, assunt) =>{
-    let divNewTask = document.querySelector('#newTask')
-    const pNewTitle = document.createElement('p');
-    pNewTitle.id = 'newTitleP';
-    pNewTitle.textContent = title
-    divNewTask.appendChild(pNewTitle);
-    
-}
+a = document.querySelector('#assunt')
 
-addButton.addEventListener('click', () => {
-    
-    
-    const divNewTask = document.createElement('div');
-    divNewTask.id = 'newTask';
-    tasks.appendChild(divNewTask);
-    newP(t.textContent, a.textContent)
-    t.textContent = ''
-    a.textContent = ''
-    addDisplay.style.display = 'none';
-    Blur.style.display = 'none';
+addButton.addEventListener('click', ()=>{
+    const newTask = (title,assunt) =>{
+        addDisplay.style.display = 'none'
+        Blur.style.display = 'none'
+        const div = document.createElement('div'),divButtons = document.createElement('div'),pTitle = document.createElement('p'),pAssunt = document.createElement('p'),divContent = document.createElement('div'),removeButton = document.createElement('button'),completedButton = document.createElement('button')
+
+        div.classList.add('newTask')
+        divContent.classList.add('divContent')
+        pTitle.classList.add('newTitleP')
+        pAssunt.classList.add('newAssuntP')
+        removeButton.classList.add('removeButton')
+        completedButton.classList.add('completedButton')
+        
+        
+        pTitle.textContent = title
+        pAssunt.textContent = assunt
+
+        if(title == ''){
+            pTitle.textContent = 'Title'
+        }
+        if (assunt == ''){
+            pAssunt.textContent = 'Nothing'
+        }
+        
+        removeButton.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+        completedButton.innerHTML = '<i class="fa-solid fa-pen"></i>'
+
+        div.appendChild(divContent)
+        divContent.appendChild(pTitle)
+        divContent.appendChild(pAssunt)
+        div.appendChild(divButtons)
+        divButtons.appendChild(removeButton)
+        divButtons.appendChild(completedButton)
+        tasks.appendChild(div)
+
+         
+
+        a.textContent = ''
+        t.value = ''
+    }
+    newTask(t.value,a.textContent)
 })
-/*addDisplay.style.display = 'none'
-    Blur.style.display = 'none'
-    const newTasks = document.createElement('p')
-    newTasks.textContent = 'Oloco'
-    tasks.appendChild(newTasks)
-    tasks.scrollTop = tasks.scrollHeight*/
+
 
 const editableDiv = document.querySelector('#assunt')
-const maxCharacters = 87  // Defina o número máximo de caracteres permitidos
+const maxCharacters = 65
 
 editableDiv.addEventListener('input', () => {
     const text = editableDiv.textContent
@@ -66,5 +84,4 @@ editableDiv.addEventListener('input', () => {
         sel.removeAllRanges()
         sel.addRange(range)
     }
-    
 })
