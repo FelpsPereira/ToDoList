@@ -176,14 +176,19 @@ body{
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.171);
     padding: 15px;
     margin: 10px;
-    align-items: center;
     justify-content: space-between;
     transition: all 0.2s ease-in-out;
 }
+.newTask.expanded{
+    height: 200px;
+    border-radius: 10px;
+}
+
 .newAssuntP{
     color:#88888898;
     font-size: 0.9em;
     margin-left: 10px;
+    transform: translateY(-6px);
 }
 
 .newTitleP{
@@ -191,6 +196,7 @@ body{
     font-size: 1.1em;
     color: rgb(102, 102, 102);
     font-weight: bold;
+    transform: translateY(-6px);
 }
 
 .removeButton, .completedButton{
@@ -202,10 +208,12 @@ body{
     text-align: center;
     margin-left: 10px;
     transition: all 0.2s ease-in-out;
+    transform: translateY(-10px);
 }
 
 .divContent{
     display: flex;
+    align-items: flex-start;
 }
 
 .removeButton:hover{
@@ -217,3 +225,15 @@ body{
     box-shadow: 0px 0px 10px rgba(0, 132, 255, 0.384);
 }
 
+.arrowButton{
+    all:unset;
+    margin-left: 5px;
+    font-size: 0.8em;
+    color:rgba(128, 128, 128, 0.541);
+    transition: all 0.2s ease-in-out;
+    transform: translateY(-3px);
+}
+.arrowButton:hover{
+    color:gray;
+    font-size: 1em;
+}
