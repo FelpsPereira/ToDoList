@@ -107,7 +107,7 @@ body{
     flex-direction: column;
     align-items: center;
     position: absolute;
-    height: 200px;
+    height: 230px;
     width: 300px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.219);
@@ -170,21 +170,29 @@ body{
 
 .newTask{
     display: flex;
+    flex-direction: column;
     width: 92%;
     height: 40px;
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.171);
     padding: 15px;
     margin: 10px;
-    justify-content: space-between;
     transition: all 0.2s ease-in-out;
 }
 .newTask.expanded{
-    height: 200px;
+    height: 150px;
     border-radius: 10px;
+    
 }
 
 .newAssuntP{
+    all:unset;
+    color:#88888898;
+    font-size: 0.9em;
+    width: 98%;
+}
+
+.assuntBelow{
     color:#88888898;
     font-size: 0.9em;
     margin-left: 10px;
@@ -214,6 +222,22 @@ body{
 .divContent{
     display: flex;
     align-items: flex-start;
+    
+}
+
+.divAll{
+    display: flex;
+    justify-content: space-between;
+}
+
+.divPAssunt{
+    display: none;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    border:1px solid rgba(128, 128, 128, 0.521);
+    padding: 10px;
+    padding-top: 5px;
+    word-wrap: break-word;
 }
 
 .removeButton:hover{
@@ -227,7 +251,7 @@ body{
 
 .arrowButton{
     all:unset;
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 0.8em;
     color:rgba(128, 128, 128, 0.541);
     transition: all 0.2s ease-in-out;
@@ -236,4 +260,18 @@ body{
 .arrowButton:hover{
     color:gray;
     font-size: 1em;
+}
+
+.completed{
+    position: absolute;
+    width: 0px;
+    height: 1px;
+    z-index:2;
+    background-color: black;
+    transform: translate(-5px,5px);
+    transition: all 0.3s ease-in-out;
+    justify-self: flex-end;
+}
+.completed.expanded{
+    width: 170px;
 }

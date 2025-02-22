@@ -29,20 +29,25 @@ addButton.addEventListener('click', ()=>{
     const newTask = (title,assunt) =>{
         addDisplay.style.display = 'none'
         Blur.style.display = 'none'
-        const div = document.createElement('div'),divButtons = document.createElement('div'),pTitle = document.createElement('p'),pAssunt = document.createElement('p'),divContent = document.createElement('div'),removeButton = document.createElement('button'),completedButton = document.createElement('button'), arrowButton = document.createElement('button')
+        const div = document.createElement('div'),divButtons = document.createElement('div'),pTitle = document.createElement('p'),pAssunt = document.createElement('p'),divContent = document.createElement('div'),removeButton = document.createElement('button'),completedButton = document.createElement('button'), arrowButton = document.createElement('button'), AssuntBelow = document.createElement('p'), divAll = document.createElement('div'), divPAssunt = document.createElement('div'), completed = document.createElement('div')
 
         div.classList.add('newTask')
         divContent.classList.add('divContent')
         divButtons.classList.add('divButtons')
+        divAll.classList.add('divAll')
+        divPAssunt.classList.add('divPAssunt')
         pTitle.classList.add('newTitleP')
+        AssuntBelow.classList.add('assuntBelow')
         pAssunt.classList.add('newAssuntP')
         removeButton.classList.add('removeButton')
         completedButton.classList.add('completedButton')
         arrowButton.classList.add('arrowButton')
+        completed.classList.add('completed')
         
         
         pTitle.textContent = title
-        pAssunt.innerHTML = 'Assunt below'
+        AssuntBelow.innerHTML = 'Assunt below'
+        pAssunt.innerHTML = assunt
         arrowButton.innerHTML = '<i class="fa-solid fa-arrow-down"></i>'
 
         if(title == ''){
@@ -52,19 +57,27 @@ addButton.addEventListener('click', ()=>{
             pAssunt.textContent = 'Nothing'
         }
 
-        
-        
         removeButton.innerHTML = '<i class="fa-solid fa-xmark"></i>'
         completedButton.innerHTML = '<i class="fa-solid fa-check"></i>'
 
-        div.appendChild(divContent)
+        
+        div.appendChild(divAll)
+        div.appendChild(divPAssunt)
+        divAll.appendChild(divContent)
         divContent.appendChild(pTitle)
-        divContent.appendChild(pAssunt)
+        divContent.appendChild(AssuntBelow)
         divContent.appendChild(arrowButton)
-        div.appendChild(divButtons)
+        divAll.appendChild(divButtons)
+        divAll.appendChild(completed)
         divButtons.appendChild(removeButton)
         divButtons.appendChild(completedButton)
         tasks.appendChild(div)
+        divPAssunt.appendChild(pAssunt)
+
+        completedButton.addEventListener('click', ()=>{
+            completed.classList.toggle('expanded')
+            
+        })
         
         removeButton.addEventListener('click', () =>{
             div.remove();
@@ -72,6 +85,13 @@ addButton.addEventListener('click', ()=>{
 
         arrowButton.addEventListener('click', () => {
             div.classList.toggle('expanded');
+            if (divPAssunt.style.display == 'block'){
+                divPAssunt.style.display = 'none'
+                arrowButton.innerHTML = '<i class="fa-solid fa-arrow-down"></i>'
+            }else {
+                divPAssunt.style.display = 'block'
+                arrowButton.innerHTML = '<i class="fa-solid fa-arrow-up" style="color: gray;"></i>'
+            }
         });
 
         a.textContent = ''
@@ -83,7 +103,7 @@ addButton.addEventListener('click', ()=>{
 
 
 const editableDiv = document.querySelector('#assunt')
-const maxCharacters = 65
+const maxCharacters = 80
 
 editableDiv.addEventListener('input', () => {
     const text = editableDiv.textContent
